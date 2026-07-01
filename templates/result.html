@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Crops</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url("/static/farming_background.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .result-box {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 500px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        ol {
+            text-align: left;
+            font-size: 20px;
+            line-height: 1.8;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>🌿 Top Recommended Crops</h2>
+        <ol>
+            {% for crop, prob in crops %}
+                <li>{{ crop }} — {{ '%.2f' | format(prob * 100) }}%</li>
+            {% endfor %}
+        </ol>
+        <a href="{{ url_for('home') }}">🔁 Try Again</a>
+    </div>
+</body>
+</html>

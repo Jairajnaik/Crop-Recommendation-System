@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url("/static/farming_background.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 120vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ffcc00;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: none;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>🌾 Crop Recommendation Form</h2>
+        <form action="/predict" method="post">
+            <label for="N">Nitrogen (N):</label>
+            <input type="number" name="N" step="any" required>
+
+            <label for="P">Phosphorus (P):</label>
+            <input type="number" name="P" step="any" required>
+
+            <label for="K">Potassium (K):</label>
+            <input type="number" name="K" step="any" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" name="temperature" step="any" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" name="humidity" step="any" required>
+
+            <label for="ph">pH Level:</label>
+            <input type="number" name="ph" step="any" required>
+
+            <label for="rainfall">Rainfall (mm):</label>
+            <input type="number" name="rainfall" step="any" required>
+
+            <label for="soil_health">Soil Health Index:</label>
+            <input type="number" name="soil_health" step="any" required>
+
+            <label for="weather">Weather Condition:</label>
+            <select name="weather" required>
+                <option value="">-- Select --</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+            </select>
+
+            <input type="submit" value="🌱 Recommend Crops">
+        </form>
+    </div>
+</body>
+</html>
